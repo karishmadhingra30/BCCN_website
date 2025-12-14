@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty & Staff - Berkeley Climate Change Network</title>
+  <link rel="icon" href="https://bccn.berkeley.edu/sites/default/files/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div id="global-nav"></div>
+
+  <main>
+    <nav class="breadcrumb"><a href="/BCCN_website/">Home</a> &gt; Faculty & Staff Filter</nav>
+    <h1>Faculty & Staff</h1>
+    
+    <div style="background: #f9f9f9; padding: 20px; border-left: 4px solid #FDB515; margin-bottom: 30px;">
+      <p style="font-style: italic; color: #666; margin: 0;">
+        <strong>Note:</strong> This filter landing page is a draft. UX enhancements to follow.
+      </p>
+    </div>
+
+    <p>Below are all pages relevant to <strong>Faculty & Staff</strong>:</p>
+
+    <div class="card-grid">
+    
+        <div class="card">
+          <h3><a href="/BCCN_website/about/">About BCCN</a></h3>
+          <p>View this page</p>
+        </div>
+        
+        <div class="card">
+          <h3><a href="/BCCN_website/bccn-resources/bccn-campus-climate-news/">BCCN Campus Climate News</a></h3>
+          <p>View this page</p>
+        </div>
+        
+        <div class="card">
+          <h3><a href="/BCCN_website/bccn-resources/hot-topics/">BCCN Global Hot Topics – central</a></h3>
+          <p>View this page</p>
+        </div>
+        
+        <div class="card">
+          <h3><a href="/BCCN_website/students/climate-classes/">Climate Classes</a></h3>
+          <p>View this page</p>
+        </div>
+        
+        <div class="card">
+          <h3><a href="/BCCN_website/bccn-resources/">Cool BCCN Resources</a></h3>
+          <p>View this page</p>
+        </div>
+        
+        <div class="card">
+          <h3><a href="/BCCN_website/faculty-and-staff/">Faculty and Staff</a></h3>
+          <p>View this page</p>
+        </div>
+        
+        <div class="card">
+          <h3><a href="/BCCN_website/faculty-and-staff/financial-support/">Financial Support</a></h3>
+          <p>View this page</p>
+        </div>
+        
+        <div class="card">
+          <h3><a href="/BCCN_website/faculty-and-staff/find-help/">Find HELP!</a></h3>
+          <p>View this page</p>
+        </div>
+        
+        <div class="card">
+          <h3><a href="/BCCN_website/faculty-and-staff/hot-topics/">Global Hot Topics – Faculty & Staff</a></h3>
+          <p>View this page</p>
+        </div>
+        
+        <div class="card">
+          <h3><a href="/BCCN_website/">Home</a></h3>
+          <p>View this page</p>
+        </div>
+        
+        <div class="card">
+          <h3><a href="/BCCN_website/media/media-inquiries/">Media Inquiries</a></h3>
+          <p>View this page</p>
+        </div>
+        
+        <div class="card">
+          <h3><a href="/BCCN_website/off-campus-partners/">Off Campus Partners</a></h3>
+          <p>View this page</p>
+        </div>
+        
+        <div class="card">
+          <h3><a href="/BCCN_website/faculty-and-staff/people-projects-and-programs/">People, Projects and Programs</a></h3>
+          <p>View this page</p>
+        </div>
+        
+        <div class="card">
+          <h3><a href="/BCCN_website/bccn-resources/podcasts-and-videos/">Podcasts and Videos</a></h3>
+          <p>View this page</p>
+        </div>
+        
+    </div>
+    
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="card-grid">
+        <div>
+          <h3 style="color: #FDB515;">Quick Links</h3>
+          <p><a href="/BCCN_website/about/contact-and-help/">Get Help</a></p>
+          <p><a href="/BCCN_website/about/">About BCCN</a></p>
+          <p><a href="https://www.berkeley.edu/">UC Berkeley</a></p>
+        </div>
+        <div>
+          <h3 style="color: #FDB515;">Resources</h3>
+          <p><a href="/BCCN_website/resources-and-tools/">Resources & Tools</a></p>
+          <p><a href="/BCCN_website/programs-and-opportunities/">Programs</a></p>
+        </div>
+        <div>
+          <h3 style="color: #FDB515;">Connect</h3>
+          <p><a href="/BCCN_website/news-events-community/">News & Events</a></p>
+          <p><a href="/BCCN_website/media/media-inquiries/">Media Inquiries</a></p>
+        </div>
+      </div>
+      <p style="margin-top: 30px; text-align: center; color: #FDB515;">&copy; 2024 Berkeley Climate Change Network. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    fetch('/BCCN_website/nav.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('global-nav').innerHTML = html;
+      });
+  </script>
+  
+</body>
+</html>
