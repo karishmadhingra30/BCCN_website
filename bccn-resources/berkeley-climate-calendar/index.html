@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berkeley Climate Calendar - Berkeley Climate Change Network</title>
+  <link rel="icon" href="https://bccn.berkeley.edu/sites/default/files/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div id="global-nav"></div>
+
+  <main>
+    <nav class="breadcrumb"><a href="/BCCN_website/">Home</a> &gt; <a href="/BCCN_website/bccn-resources/">BCCN Resource Hub</a> &gt; Berkeley Climate Calendar</nav>
+    <h1>Berkeley Climate Calendar</h1>
+    
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="card-grid">
+        <div>
+          <h3 style="color: #FDB515;">Quick Links</h3>
+          <p><a href="/BCCN_website/about/contact-and-help/">Get Help</a></p>
+          <p><a href="/BCCN_website/about/">About BCCN</a></p>
+          <p><a href="https://www.berkeley.edu/">UC Berkeley</a></p>
+        </div>
+        <div>
+          <h3 style="color: #FDB515;">Resources</h3>
+          <p><a href="/BCCN_website/resources-and-tools/">Resources & Tools</a></p>
+          <p><a href="/BCCN_website/programs-and-opportunities/">Programs</a></p>
+        </div>
+        <div>
+          <h3 style="color: #FDB515;">Connect</h3>
+          <p><a href="/BCCN_website/news-events-community/">News & Events</a></p>
+          <p><a href="/BCCN_website/media/media-inquiries/">Media Inquiries</a></p>
+        </div>
+      </div>
+      <p style="margin-top: 30px; text-align: center; color: #FDB515;">&copy; 2024 Berkeley Climate Change Network. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    fetch('/BCCN_website/nav.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('global-nav').innerHTML = html;
+      });
+  </script>
+  
+</body>
+</html>

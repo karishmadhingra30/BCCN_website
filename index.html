@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Berkeley Climate Change Network</title>
+  <link rel="icon" href="https://bccn.berkeley.edu/sites/default/files/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <div id="global-nav"></div>
+
+  <main>
+    
+    <h1>Home</h1>
+    
+    <div style="background: linear-gradient(135deg, #003262 0%, #3B7EA1 100%); color: white; padding: 60px 40px; margin: -40px -20px 40px -20px; text-align: center; border-radius: 8px;">
+      <h2 style="color: #FDB515; font-size: 42px; margin-bottom: 20px;">Welcome to the Berkeley Climate Change Network</h2>
+      <p style="font-size: 20px; max-width: 800px; margin: 0 auto;">Connecting the UC Berkeley community in climate research, education, and action.</p>
+    </div>
+
+    <h2>Explore BCCN</h2>
+    <div class="card-grid">
+        <div class="card">
+          <h3><a href="/BCCN_website/about/">About BCCN</a></h3>
+          <p>Learn more about about bccn.</p>
+        </div>
+        <div class="card">
+          <h3><a href="/BCCN_website/programs-and-opportunities/">Programs & Opportunities</a></h3>
+          <p>Learn more about programs & opportunities.</p>
+        </div>
+        <div class="card">
+          <h3><a href="/BCCN_website/people-and-partners/">People & Partners</a></h3>
+          <p>Learn more about people & partners.</p>
+        </div>
+        <div class="card">
+          <h3><a href="/BCCN_website/resources-and-tools/">Resources & Tools</a></h3>
+          <p>Learn more about resources & tools.</p>
+        </div>
+        <div class="card">
+          <h3><a href="/BCCN_website/news-events-community/">News, Events & Community</a></h3>
+          <p>Learn more about news, events & community.</p>
+        </div></div>
+
+    <h2 style="margin-top: 50px;">Quick Access</h2>
+    <div class="card-grid">
+        <div class="card">
+          <h3><a href="/BCCN_website/faculty-and-staff/">For Faculty & Staff</a></h3>
+          <p>Learn more about for faculty & staff.</p>
+        </div>
+        <div class="card">
+          <h3><a href="/BCCN_website/students/">For Students</a></h3>
+          <p>Learn more about for students.</p>
+        </div>
+        <div class="card">
+          <h3><a href="/BCCN_website/off-campus-partners/">For Partners</a></h3>
+          <p>Learn more about for partners.</p>
+        </div>
+        <div class="card">
+          <h3><a href="/BCCN_website/about/contact-and-help/">Get Help</a></h3>
+          <p>Learn more about get help.</p>
+        </div></div>
+    
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="card-grid">
+        <div>
+          <h3 style="color: #FDB515;">Quick Links</h3>
+          <p><a href="/BCCN_website/about/contact-and-help/">Get Help</a></p>
+          <p><a href="/BCCN_website/about/">About BCCN</a></p>
+          <p><a href="https://www.berkeley.edu/">UC Berkeley</a></p>
+        </div>
+        <div>
+          <h3 style="color: #FDB515;">Resources</h3>
+          <p><a href="/BCCN_website/resources-and-tools/">Resources & Tools</a></p>
+          <p><a href="/BCCN_website/programs-and-opportunities/">Programs</a></p>
+        </div>
+        <div>
+          <h3 style="color: #FDB515;">Connect</h3>
+          <p><a href="/BCCN_website/news-events-community/">News & Events</a></p>
+          <p><a href="/BCCN_website/media/media-inquiries/">Media Inquiries</a></p>
+        </div>
+      </div>
+      <p style="margin-top: 30px; text-align: center; color: #FDB515;">&copy; 2024 Berkeley Climate Change Network. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    fetch('/BCCN_website/nav.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('global-nav').innerHTML = html;
+      });
+  </script>
+  
+    <script>
+      // Hide audience filter on pages that don't need it
+      window.addEventListener('DOMContentLoaded', function() {
+        var filter = document.getElementById('audience-filter');
+        if (filter) filter.style.display = 'none';
+      });
+    </script>
+</body>
+</html>
