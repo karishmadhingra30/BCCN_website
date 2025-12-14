@@ -133,7 +133,7 @@ def create_page_template(title, breadcrumb, content, show_audience_filter=False,
   </footer>
 
   <script>
-    fetch('{BASE_URL}/nav.html')
+    fetch('{BASE_URL}/nav.html?v=20251214')
       .then(r => r.text())
       .then(html => {{
         document.getElementById('global-nav').innerHTML = html;
