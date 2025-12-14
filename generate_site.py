@@ -9,6 +9,71 @@ from pathlib import Path
 
 BASE_URL = "/BCCN_website"
 
+# Page tagging system for category filters
+PAGE_TAGS = {
+    # Home page
+    '/': ['students', 'faculty-and-staff', 'off-campus-partners', 'media', 'funders-and-investors'],
+
+    # About section
+    '/about/': ['students', 'faculty-and-staff', 'off-campus-partners', 'media', 'funders-and-investors'],
+
+    # Students section
+    '/students/': ['students'],
+    '/students/climate-classes/': ['students', 'faculty-and-staff'],
+    '/students/internships-and-jobs/': ['students', 'off-campus-partners'],
+    '/students/clubs-and-organizations/': ['students'],
+    '/students/hot-topics/': ['students', 'media'],
+
+    # Faculty & Staff section
+    '/faculty-and-staff/': ['faculty-and-staff'],
+    '/faculty-and-staff/people-projects-and-programs/': ['faculty-and-staff', 'off-campus-partners', 'funders-and-investors'],
+    '/faculty-and-staff/financial-support/': ['faculty-and-staff', 'funders-and-investors'],
+    '/faculty-and-staff/hot-topics/': ['faculty-and-staff', 'media'],
+    '/faculty-and-staff/find-help/': ['faculty-and-staff', 'students', 'off-campus-partners'],
+
+    # BCCN Resources
+    '/bccn-resources/': ['students', 'faculty-and-staff', 'off-campus-partners'],
+    '/bccn-resources/bccn-campus-climate-news/': ['students', 'faculty-and-staff', 'media'],
+    '/bccn-resources/podcasts-and-videos/': ['students', 'faculty-and-staff', 'media', 'off-campus-partners'],
+    '/bccn-resources/hot-topics/': ['students', 'faculty-and-staff', 'media'],
+
+    # Off-Campus Partners
+    '/off-campus-partners/': ['off-campus-partners', 'faculty-and-staff'],
+
+    # Media
+    '/media/media-inquiries/': ['media', 'faculty-and-staff'],
+
+    # Funders & Investors
+    '/funders-and-investors/': ['funders-and-investors', 'off-campus-partners'],
+
+    # Sponsors (referenced in user's mapping)
+    '/resources-and-tools/give-and-sponsor/': ['off-campus-partners', 'funders-and-investors', 'media'],
+}
+
+# Filter category metadata
+FILTER_CATEGORIES = {
+    'students': {
+        'title': 'Students',
+        'slug': 'students',
+    },
+    'faculty-and-staff': {
+        'title': 'Faculty & Staff',
+        'slug': 'faculty-and-staff',
+    },
+    'off-campus-partners': {
+        'title': 'Off-Campus Partners',
+        'slug': 'off-campus-partners',
+    },
+    'media': {
+        'title': 'Media',
+        'slug': 'media',
+    },
+    'funders-and-investors': {
+        'title': 'Funders/Investors',
+        'slug': 'funders-and-investors',
+    },
+}
+
 # Page template
 def create_page_template(title, breadcrumb, content, show_audience_filter=False, is_placeholder=False):
     """Create an HTML page from template"""
@@ -509,6 +574,104 @@ pages.append({
     'content': lorem_ipsum()
 })
 
+def create_filter_landing_page(category_slug):
+    """Create a filter landing page for a specific category"""
+    category = FILTER_CATEGORIES[category_slug]
+    title = category['title']
+
+    # Find all pages tagged with this category
+    tagged_pages = []
+    for page_url, tags in PAGE_TAGS.items():
+        if category_slug in tags:
+            # Determine page title from URL
+            if page_url == '/':
+                page_title = 'Home'
+            else:
+                # Try to extract title from the URL path
+                path_parts = page_url.strip('/').split('/')
+                page_title = path_parts[-1].replace('-', ' ').title()
+
+                # Special case handling for known pages
+                if page_url == '/about/':
+                    page_title = 'About BCCN'
+                elif page_url == '/students/':
+                    page_title = 'Students'
+                elif page_url == '/students/climate-classes/':
+                    page_title = 'Climate Classes'
+                elif page_url == '/students/internships-and-jobs/':
+                    page_title = 'Internships and Jobs'
+                elif page_url == '/students/clubs-and-organizations/':
+                    page_title = 'Clubs and Organizations'
+                elif page_url == '/students/hot-topics/':
+                    page_title = 'Hot Topics Global – Students'
+                elif page_url == '/faculty-and-staff/':
+                    page_title = 'Faculty and Staff'
+                elif page_url == '/faculty-and-staff/people-projects-and-programs/':
+                    page_title = 'People, Projects and Programs'
+                elif page_url == '/faculty-and-staff/financial-support/':
+                    page_title = 'Financial Support'
+                elif page_url == '/faculty-and-staff/hot-topics/':
+                    page_title = 'Global Hot Topics – Faculty & Staff'
+                elif page_url == '/faculty-and-staff/find-help/':
+                    page_title = 'Find HELP!'
+                elif page_url == '/bccn-resources/':
+                    page_title = 'Cool BCCN Resources'
+                elif page_url == '/bccn-resources/bccn-campus-climate-news/':
+                    page_title = 'BCCN Campus Climate News'
+                elif page_url == '/bccn-resources/podcasts-and-videos/':
+                    page_title = 'Podcasts and Videos'
+                elif page_url == '/bccn-resources/hot-topics/':
+                    page_title = 'BCCN Global Hot Topics – central'
+                elif page_url == '/off-campus-partners/':
+                    page_title = 'Off Campus Partners'
+                elif page_url == '/media/media-inquiries/':
+                    page_title = 'Media Inquiries'
+                elif page_url == '/funders-and-investors/':
+                    page_title = 'Funders/Investors'
+                elif page_url == '/resources-and-tools/give-and-sponsor/':
+                    page_title = 'Sponsors'
+
+            tagged_pages.append({
+                'title': page_title,
+                'url': f"{BASE_URL}{page_url}" if page_url != '/' else f"{BASE_URL}/"
+            })
+
+    # Sort pages alphabetically by title
+    tagged_pages.sort(key=lambda x: x['title'])
+
+    # Build the page content
+    content = f"""
+    <div style="background: #f9f9f9; padding: 20px; border-left: 4px solid #FDB515; margin-bottom: 30px;">
+      <p style="font-style: italic; color: #666; margin: 0;">
+        <strong>Note:</strong> This filter landing page is a draft. UX enhancements to follow.
+      </p>
+    </div>
+
+    <p>Below are all pages relevant to <strong>{title}</strong>:</p>
+
+    <div class="card-grid">
+    """
+
+    for page in tagged_pages:
+        content += f"""
+        <div class="card">
+          <h3><a href="{page['url']}">{page['title']}</a></h3>
+          <p>View this page</p>
+        </div>
+        """
+
+    content += """
+    </div>
+    """
+
+    return {
+        'path': f'filter/{category_slug}/index.html',
+        'title': title,
+        'breadcrumb': [('Home', f'{BASE_URL}/'), (f'{title} Filter', None)],
+        'show_audience_filter': True,
+        'content': content
+    }
+
 # Generate all pages
 def main():
     """Generate all pages"""
@@ -529,7 +692,26 @@ def main():
         file_path = os.path.join(base_path, page['path'])
         write_page(file_path, html)
 
+    # Generate filter landing pages
+    filter_pages_count = 0
+    for category_slug in FILTER_CATEGORIES.keys():
+        filter_page = create_filter_landing_page(category_slug)
+        breadcrumb = create_breadcrumb(filter_page['breadcrumb'])
+
+        html = create_page_template(
+            title=filter_page['title'],
+            breadcrumb=breadcrumb,
+            content=filter_page['content'],
+            show_audience_filter=filter_page['show_audience_filter'],
+            is_placeholder=False
+        )
+
+        file_path = os.path.join(base_path, filter_page['path'])
+        write_page(file_path, html)
+        filter_pages_count += 1
+
     print(f"\n✓ Successfully generated {len(pages)} pages!")
+    print(f"✓ Successfully generated {filter_pages_count} filter landing pages!")
     print(f"✓ Site ready at: https://karishmadhingra30.github.io/BCCN_website/")
 
 if __name__ == '__main__':
